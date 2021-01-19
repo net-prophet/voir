@@ -1,0 +1,27 @@
+name: voir
+description: Admin UI for noiR
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.0 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.0
+  flutter:
+    sdk: flutter
+  flutter_icons: ^1.0.0
+  flutter_ion: ^0.2.0
+  json_rpc_2: ^2.2.2
+  web_socket_channel: ^1.1.0
+  protobuf: ^1.1.0
+  pedantic: ^1.9.2
+  grpc: ^2.8.0
+
+  get: ^3.17.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
