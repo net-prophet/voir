@@ -48,7 +48,7 @@ class VoirAdminController extends GetxController {
   }
 
   void initGRPC() {
-    var noirHost = "tcp://10.20.30.231:$defaultGRPCPort";
+    var noirHost = "tcp://localhost:$defaultGRPCPort";
     var uri = Uri.parse(noirHost);
     var channel = createChannel(uri.host, uri.port);
     _client = noir.NoirClient(channel);

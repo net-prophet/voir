@@ -25,7 +25,7 @@ class PubSubController extends GetxController {
   final noirSignalPort = "7000";
   final noirAdminPort = "8443";
 
-  final ion.Signal _signal = ion.JsonRPCSignal("ws://10.20.30.231:7000/ws");
+  final ion.Signal _signal = ion.JsonRPCSignal("ws://localhost:7000/ws");
 
   ion.Client _client;
   ion.LocalStream _localStream;
