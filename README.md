@@ -1,6 +1,6 @@
-# pion_sfu_example
+# voiR
 
-A new Flutter project.
+Admin interface for noiR
 
 ## Getting Started
 
@@ -8,7 +8,6 @@ Make sure your flutter is using the `dev` channel.
 
 - `flutter channel dev`
 - `flutter upgrade`
-- `./scripts/project_tools.sh create`
 
 ## For Android/iOS
 - `flutter run`
