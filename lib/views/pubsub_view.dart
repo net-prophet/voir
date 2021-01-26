@@ -41,7 +41,7 @@ class PubSubController extends GetxController {
         await renderer.initialize();
         renderer.srcObject = remoteStream.stream;
         plist.add(Participant('Remote', renderer, remoteStream.stream));
-        notifyChildrens();
+        update();
       }
     };
   }
@@ -60,7 +60,7 @@ class PubSubController extends GetxController {
     await renderer.initialize();
     renderer.srcObject = _localStream.stream;
     plist.add(Participant('Local', renderer, _localStream.stream));
-    notifyChildrens();
+    update();
   }
 
   void unpublish() async {
@@ -71,7 +71,7 @@ class PubSubController extends GetxController {
     await unpublish();
     _localStream.stream.getTracks().forEach((element) {
       element.dispose();
-      notifyChildrens();
+      update();
     });
     await _localStream.stream.dispose();
     _localStream = null;

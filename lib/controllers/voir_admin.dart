@@ -71,7 +71,7 @@ class VoirAdminController extends GetxController {
     if (reply.hasAdmin() && reply.admin.hasRoomList()) {
       print("number of rooms: ${reply.admin.roomList.count}");
       roomList = reply.admin.roomList.obs;
-      notifyChildrens();
+      update();
     }
   }
 
