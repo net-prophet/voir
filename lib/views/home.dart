@@ -16,19 +16,18 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
             GetBuilder<VoirAdminController>(
-              builder: (cc) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    for (var room in c.roomList.value.result)
-                      RaisedButton(
-                          child: Text("${room.id}: ${room.score} users"),
-                          onPressed: () {
-                            Get.toNamed(
-                              "/room/${room.id}",
-                            );
-                          })
-                  ]),
-            )
+                builder: (cc) => Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          for (var room in c.roomList.value.result)
+                            RaisedButton(
+                                child: Text("${room.id}: ${room.score} users"),
+                                onPressed: () {
+                                  Get.toNamed(
+                                    "/room/${room.id}",
+                                  );
+                                })
+                        ]))
           ]
               /*[
           ,

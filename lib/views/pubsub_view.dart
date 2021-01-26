@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ion/flutter_ion.dart' as ion;
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:get/get.dart';
+import 'package:voir/controllers/voir_admin.dart';
 
 class Participant {
   Participant(this.title, this.renderer, this.stream);
@@ -18,12 +19,32 @@ class PubSubController extends GetxController {
   @mustCallSuper
   void onInit() {
     super.onInit();
+    initialJoin();
   }
 
-  final noirHost = "10.20.30.231";
-  final noirProto = "wss";
-  final noirSignalPort = "7000";
-  final noirAdminPort = "8443";
+  @override
+  void onClose() {
+    leave();
+    super.onClose();
+  }
+
+  void initialJoin() async {
+    if (_client != null) {
+      await leave();
+    }
+    var room = Get.parameters["id"];
+    _client = await ion.Client.create(sid: room, signal: _signal);
+    _client.ontrack = (track, ion.RemoteStream remoteStream) async {
+      if (track.kind == 'video') {
+        print('ontrack: remote stream => ${remoteStream.id}');
+        var renderer = RTCVideoRenderer();
+        await renderer.initialize();
+        renderer.srcObject = remoteStream.stream;
+        plist.add(Participant('Remote', renderer, remoteStream.stream));
+        notifyChildrens();
+      }
+    };
+  }
 
   final ion.Signal _signal = ion.JsonRPCSignal("ws://localhost:7000/ws");
 
@@ -31,29 +52,15 @@ class PubSubController extends GetxController {
   ion.LocalStream _localStream;
 
   void pubsub() async {
-    if (_client == null) {
-      _client = await ion.Client.create(sid: 'test session', signal: _signal);
-      _localStream = await ion.LocalStream.getUserMedia(
-          constraints: ion.Constraints.defaults..simulcast = false);
-      await _client.publish(_localStream);
+    _localStream = await ion.LocalStream.getUserMedia(
+        constraints: ion.Constraints.defaults..simulcast = false);
+    await _client.publish(_localStream);
 
-      _client.ontrack = (track, ion.RemoteStream remoteStream) async {
-        if (track.kind == 'video') {
-          print('ontrack: remote stream => ${remoteStream.id}');
-          var renderer = RTCVideoRenderer();
-          await renderer.initialize();
-          renderer.srcObject = remoteStream.stream;
-          plist.add(Participant('Remote', renderer, remoteStream.stream));
-        }
-      };
-
-      var renderer = RTCVideoRenderer();
-      await renderer.initialize();
-      renderer.srcObject = _localStream.stream;
-      plist.add(Participant('Local', renderer, _localStream.stream));
-    } else {
-      await leave();
-    }
+    var renderer = RTCVideoRenderer();
+    await renderer.initialize();
+    renderer.srcObject = _localStream.stream;
+    plist.add(Participant('Local', renderer, _localStream.stream));
+    notifyChildrens();
   }
 
   void unpublish() async {
@@ -64,6 +71,7 @@ class PubSubController extends GetxController {
     await unpublish();
     _localStream.stream.getTracks().forEach((element) {
       element.dispose();
+      notifyChildrens();
     });
     await _localStream.stream.dispose();
     _localStream = null;
@@ -74,6 +82,7 @@ class PubSubController extends GetxController {
 
 class PubSubTestView extends StatelessWidget {
   final PubSubController c = Get.put(PubSubController());
+  final VoirAdminController a = Get.put(VoirAdminController());
 
   Widget getItemView(Participant item) {
     return Container(
@@ -114,7 +123,12 @@ class PubSubTestView extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return getItemView(c.plist[index]);
                 }))),
-        floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.video_call), onPressed: c.pubsub));
+        floatingActionButton: Row(children: [
+          FloatingActionButton(
+              child: Icon(Icons.video_call), onPressed: c.pubsub),
+          FloatingActionButton(
+              child: Icon(Icons.add_to_queue),
+              onPressed: () => a.PlayTestVideo(room)),
+        ]));
   }
 }

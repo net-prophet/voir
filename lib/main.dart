@@ -11,7 +11,7 @@ class VoirApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'voiR',
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.amberAccent,

@@ -787,21 +787,21 @@ class RoomListReply extends $pb.GeneratedMessage {
 
 enum RoomAdminRequest_Method {
   createRoom, 
-  playFile, 
+  roomJob, 
   notSet
 }
 
 class RoomAdminRequest extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, RoomAdminRequest_Method> _RoomAdminRequest_MethodByTag = {
     2 : RoomAdminRequest_Method.createRoom,
-    3 : RoomAdminRequest_Method.playFile,
+    3 : RoomAdminRequest_Method.roomJob,
     0 : RoomAdminRequest_Method.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RoomAdminRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
     ..oo(0, [2, 3])
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'roomID', protoName: 'roomID')
     ..aOM<CreateRoomRequest>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createRoom', protoName: 'createRoom', subBuilder: CreateRoomRequest.create)
-    ..aOM<PlayFileRequest>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'playFile', protoName: 'playFile', subBuilder: PlayFileRequest.create)
+    ..aOM<RoomJobRequest>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'roomJob', protoName: 'roomJob', subBuilder: RoomJobRequest.create)
     ..hasRequiredFields = false
   ;
 
@@ -809,7 +809,7 @@ class RoomAdminRequest extends $pb.GeneratedMessage {
   factory RoomAdminRequest({
     $core.String roomID,
     CreateRoomRequest createRoom,
-    PlayFileRequest playFile,
+    RoomJobRequest roomJob,
   }) {
     final _result = create();
     if (roomID != null) {
@@ -818,8 +818,8 @@ class RoomAdminRequest extends $pb.GeneratedMessage {
     if (createRoom != null) {
       _result.createRoom = createRoom;
     }
-    if (playFile != null) {
-      _result.playFile = playFile;
+    if (roomJob != null) {
+      _result.roomJob = roomJob;
     }
     return _result;
   }
@@ -868,21 +868,21 @@ class RoomAdminRequest extends $pb.GeneratedMessage {
   CreateRoomRequest ensureCreateRoom() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  PlayFileRequest get playFile => $_getN(2);
+  RoomJobRequest get roomJob => $_getN(2);
   @$pb.TagNumber(3)
-  set playFile(PlayFileRequest v) { setField(3, v); }
+  set roomJob(RoomJobRequest v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasPlayFile() => $_has(2);
+  $core.bool hasRoomJob() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPlayFile() => clearField(3);
+  void clearRoomJob() => clearField(3);
   @$pb.TagNumber(3)
-  PlayFileRequest ensurePlayFile() => $_ensure(2);
+  RoomJobRequest ensureRoomJob() => $_ensure(2);
 }
 
 enum RoomAdminReply_Payload {
   error, 
   createRoom, 
-  playFile, 
+  roomJob, 
   notSet
 }
 
@@ -890,7 +890,7 @@ class RoomAdminReply extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, RoomAdminReply_Payload> _RoomAdminReply_PayloadByTag = {
     2 : RoomAdminReply_Payload.error,
     3 : RoomAdminReply_Payload.createRoom,
-    4 : RoomAdminReply_Payload.playFile,
+    4 : RoomAdminReply_Payload.roomJob,
     0 : RoomAdminReply_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RoomAdminReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
@@ -898,7 +898,7 @@ class RoomAdminReply extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'roomID', protoName: 'roomID')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error')
     ..aOM<CreateRoomReply>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createRoom', protoName: 'createRoom', subBuilder: CreateRoomReply.create)
-    ..aOM<PlayFileReply>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'playFile', protoName: 'playFile', subBuilder: PlayFileReply.create)
+    ..aOM<RoomJobReply>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'roomJob', protoName: 'roomJob', subBuilder: RoomJobReply.create)
     ..hasRequiredFields = false
   ;
 
@@ -907,7 +907,7 @@ class RoomAdminReply extends $pb.GeneratedMessage {
     $core.String roomID,
     $core.String error,
     CreateRoomReply createRoom,
-    PlayFileReply playFile,
+    RoomJobReply roomJob,
   }) {
     final _result = create();
     if (roomID != null) {
@@ -919,8 +919,8 @@ class RoomAdminReply extends $pb.GeneratedMessage {
     if (createRoom != null) {
       _result.createRoom = createRoom;
     }
-    if (playFile != null) {
-      _result.playFile = playFile;
+    if (roomJob != null) {
+      _result.roomJob = roomJob;
     }
     return _result;
   }
@@ -978,15 +978,15 @@ class RoomAdminReply extends $pb.GeneratedMessage {
   CreateRoomReply ensureCreateRoom() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  PlayFileReply get playFile => $_getN(3);
+  RoomJobReply get roomJob => $_getN(3);
   @$pb.TagNumber(4)
-  set playFile(PlayFileReply v) { setField(4, v); }
+  set roomJob(RoomJobReply v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPlayFile() => $_has(3);
+  $core.bool hasRoomJob() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPlayFile() => clearField(4);
+  void clearRoomJob() => clearField(4);
   @$pb.TagNumber(4)
-  PlayFileReply ensurePlayFile() => $_ensure(3);
+  RoomJobReply ensureRoomJob() => $_ensure(3);
 }
 
 class CreateRoomRequest extends $pb.GeneratedMessage {
@@ -1087,61 +1087,61 @@ class CreateRoomReply extends $pb.GeneratedMessage {
   RoomOptions ensureOptions() => $_ensure(0);
 }
 
-class PlayFileRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PlayFileRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filename')
+class RoomJobRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RoomJobRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'handler')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pid')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeat')
+    ..a<$core.List<$core.int>>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'options', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
-  PlayFileRequest._() : super();
-  factory PlayFileRequest({
-    $core.String filename,
+  RoomJobRequest._() : super();
+  factory RoomJobRequest({
+    $core.String handler,
     $core.String pid,
-    $core.bool repeat,
+    $core.List<$core.int> options,
   }) {
     final _result = create();
-    if (filename != null) {
-      _result.filename = filename;
+    if (handler != null) {
+      _result.handler = handler;
     }
     if (pid != null) {
       _result.pid = pid;
     }
-    if (repeat != null) {
-      _result.repeat = repeat;
+    if (options != null) {
+      _result.options = options;
     }
     return _result;
   }
-  factory PlayFileRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory PlayFileRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory RoomJobRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RoomJobRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  PlayFileRequest clone() => PlayFileRequest()..mergeFromMessage(this);
+  RoomJobRequest clone() => RoomJobRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PlayFileRequest copyWith(void Function(PlayFileRequest) updates) => super.copyWith((message) => updates(message as PlayFileRequest)); // ignore: deprecated_member_use
+  RoomJobRequest copyWith(void Function(RoomJobRequest) updates) => super.copyWith((message) => updates(message as RoomJobRequest)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static PlayFileRequest create() => PlayFileRequest._();
-  PlayFileRequest createEmptyInstance() => create();
-  static $pb.PbList<PlayFileRequest> createRepeated() => $pb.PbList<PlayFileRequest>();
+  static RoomJobRequest create() => RoomJobRequest._();
+  RoomJobRequest createEmptyInstance() => create();
+  static $pb.PbList<RoomJobRequest> createRepeated() => $pb.PbList<RoomJobRequest>();
   @$core.pragma('dart2js:noInline')
-  static PlayFileRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PlayFileRequest>(create);
-  static PlayFileRequest _defaultInstance;
+  static RoomJobRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RoomJobRequest>(create);
+  static RoomJobRequest _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get filename => $_getSZ(0);
+  $core.String get handler => $_getSZ(0);
   @$pb.TagNumber(1)
-  set filename($core.String v) { $_setString(0, v); }
+  set handler($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasFilename() => $_has(0);
+  $core.bool hasHandler() => $_has(0);
   @$pb.TagNumber(1)
-  void clearFilename() => clearField(1);
+  void clearHandler() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get pid => $_getSZ(1);
@@ -1153,75 +1153,75 @@ class PlayFileRequest extends $pb.GeneratedMessage {
   void clearPid() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.bool get repeat => $_getBF(2);
+  $core.List<$core.int> get options => $_getN(2);
   @$pb.TagNumber(3)
-  set repeat($core.bool v) { $_setBool(2, v); }
+  set options($core.List<$core.int> v) { $_setBytes(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasRepeat() => $_has(2);
+  $core.bool hasOptions() => $_has(2);
   @$pb.TagNumber(3)
-  void clearRepeat() => clearField(3);
+  void clearOptions() => clearField(3);
 }
 
-class PlayFileReply extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PlayFileReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'filename')
+class RoomJobReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RoomJobReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'handler')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pid')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repeat')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..a<$core.List<$core.int>>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'options', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
-  PlayFileReply._() : super();
-  factory PlayFileReply({
-    $core.String filename,
+  RoomJobReply._() : super();
+  factory RoomJobReply({
+    $core.String handler,
     $core.String pid,
-    $core.bool repeat,
     $core.bool status,
+    $core.List<$core.int> options,
   }) {
     final _result = create();
-    if (filename != null) {
-      _result.filename = filename;
+    if (handler != null) {
+      _result.handler = handler;
     }
     if (pid != null) {
       _result.pid = pid;
-    }
-    if (repeat != null) {
-      _result.repeat = repeat;
     }
     if (status != null) {
       _result.status = status;
     }
+    if (options != null) {
+      _result.options = options;
+    }
     return _result;
   }
-  factory PlayFileReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory PlayFileReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory RoomJobReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RoomJobReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  PlayFileReply clone() => PlayFileReply()..mergeFromMessage(this);
+  RoomJobReply clone() => RoomJobReply()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PlayFileReply copyWith(void Function(PlayFileReply) updates) => super.copyWith((message) => updates(message as PlayFileReply)); // ignore: deprecated_member_use
+  RoomJobReply copyWith(void Function(RoomJobReply) updates) => super.copyWith((message) => updates(message as RoomJobReply)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static PlayFileReply create() => PlayFileReply._();
-  PlayFileReply createEmptyInstance() => create();
-  static $pb.PbList<PlayFileReply> createRepeated() => $pb.PbList<PlayFileReply>();
+  static RoomJobReply create() => RoomJobReply._();
+  RoomJobReply createEmptyInstance() => create();
+  static $pb.PbList<RoomJobReply> createRepeated() => $pb.PbList<RoomJobReply>();
   @$core.pragma('dart2js:noInline')
-  static PlayFileReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PlayFileReply>(create);
-  static PlayFileReply _defaultInstance;
+  static RoomJobReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RoomJobReply>(create);
+  static RoomJobReply _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get filename => $_getSZ(0);
+  $core.String get handler => $_getSZ(0);
   @$pb.TagNumber(1)
-  set filename($core.String v) { $_setString(0, v); }
+  set handler($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasFilename() => $_has(0);
+  $core.bool hasHandler() => $_has(0);
   @$pb.TagNumber(1)
-  void clearFilename() => clearField(1);
+  void clearHandler() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get pid => $_getSZ(1);
@@ -1233,22 +1233,22 @@ class PlayFileReply extends $pb.GeneratedMessage {
   void clearPid() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.bool get repeat => $_getBF(2);
+  $core.bool get status => $_getBF(2);
   @$pb.TagNumber(3)
-  set repeat($core.bool v) { $_setBool(2, v); }
+  set status($core.bool v) { $_setBool(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasRepeat() => $_has(2);
+  $core.bool hasStatus() => $_has(2);
   @$pb.TagNumber(3)
-  void clearRepeat() => clearField(3);
+  void clearStatus() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.bool get status => $_getBF(3);
+  $core.List<$core.int> get options => $_getN(3);
   @$pb.TagNumber(4)
-  set status($core.bool v) { $_setBool(3, v); }
+  set options($core.List<$core.int> v) { $_setBytes(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasStatus() => $_has(3);
+  $core.bool hasOptions() => $_has(3);
   @$pb.TagNumber(4)
-  void clearStatus() => clearField(4);
+  void clearOptions() => clearField(4);
 }
 
 enum SignalRequest_Payload {
@@ -2371,5 +2371,203 @@ class UserOptions extends $pb.GeneratedMessage {
   $core.bool hasKeyExpiryFactor() => $_has(3);
   @$pb.TagNumber(4)
   void clearKeyExpiryFactor() => clearField(4);
+}
+
+class JobData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'JobData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'handler')
+    ..e<JobData_JobStatus>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: JobData_JobStatus.CREATED, valueOf: JobData_JobStatus.valueOf, enumValues: JobData_JobStatus.values)
+    ..aOM<$1.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'created', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastUpdate', protoName: 'lastUpdate', subBuilder: $1.Timestamp.create)
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nodeID', protoName: 'nodeID')
+    ..hasRequiredFields = false
+  ;
+
+  JobData._() : super();
+  factory JobData({
+    $core.String id,
+    $core.String handler,
+    JobData_JobStatus status,
+    $1.Timestamp created,
+    $1.Timestamp lastUpdate,
+    $core.String nodeID,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (handler != null) {
+      _result.handler = handler;
+    }
+    if (status != null) {
+      _result.status = status;
+    }
+    if (created != null) {
+      _result.created = created;
+    }
+    if (lastUpdate != null) {
+      _result.lastUpdate = lastUpdate;
+    }
+    if (nodeID != null) {
+      _result.nodeID = nodeID;
+    }
+    return _result;
+  }
+  factory JobData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory JobData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  JobData clone() => JobData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  JobData copyWith(void Function(JobData) updates) => super.copyWith((message) => updates(message as JobData)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static JobData create() => JobData._();
+  JobData createEmptyInstance() => create();
+  static $pb.PbList<JobData> createRepeated() => $pb.PbList<JobData>();
+  @$core.pragma('dart2js:noInline')
+  static JobData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<JobData>(create);
+  static JobData _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get handler => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set handler($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasHandler() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearHandler() => clearField(2);
+
+  @$pb.TagNumber(3)
+  JobData_JobStatus get status => $_getN(2);
+  @$pb.TagNumber(3)
+  set status(JobData_JobStatus v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasStatus() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearStatus() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $1.Timestamp get created => $_getN(3);
+  @$pb.TagNumber(4)
+  set created($1.Timestamp v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCreated() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCreated() => clearField(4);
+  @$pb.TagNumber(4)
+  $1.Timestamp ensureCreated() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $1.Timestamp get lastUpdate => $_getN(4);
+  @$pb.TagNumber(5)
+  set lastUpdate($1.Timestamp v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasLastUpdate() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLastUpdate() => clearField(5);
+  @$pb.TagNumber(5)
+  $1.Timestamp ensureLastUpdate() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $core.String get nodeID => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set nodeID($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasNodeID() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearNodeID() => clearField(6);
+}
+
+class PeerJobData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PeerJobData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'noir'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'roomID', protoName: 'roomID')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'peerID', protoName: 'peerID')
+    ..pPS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishTracks', protoName: 'publishTracks')
+    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subscribeTracks', protoName: 'subscribeTracks')
+    ..hasRequiredFields = false
+  ;
+
+  PeerJobData._() : super();
+  factory PeerJobData({
+    $core.String roomID,
+    $core.String peerID,
+    $core.Iterable<$core.String> publishTracks,
+    $core.Iterable<$core.String> subscribeTracks,
+  }) {
+    final _result = create();
+    if (roomID != null) {
+      _result.roomID = roomID;
+    }
+    if (peerID != null) {
+      _result.peerID = peerID;
+    }
+    if (publishTracks != null) {
+      _result.publishTracks.addAll(publishTracks);
+    }
+    if (subscribeTracks != null) {
+      _result.subscribeTracks.addAll(subscribeTracks);
+    }
+    return _result;
+  }
+  factory PeerJobData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PeerJobData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PeerJobData clone() => PeerJobData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PeerJobData copyWith(void Function(PeerJobData) updates) => super.copyWith((message) => updates(message as PeerJobData)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static PeerJobData create() => PeerJobData._();
+  PeerJobData createEmptyInstance() => create();
+  static $pb.PbList<PeerJobData> createRepeated() => $pb.PbList<PeerJobData>();
+  @$core.pragma('dart2js:noInline')
+  static PeerJobData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PeerJobData>(create);
+  static PeerJobData _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get roomID => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set roomID($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRoomID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRoomID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get peerID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set peerID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPeerID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPeerID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<$core.String> get publishTracks => $_getList(2);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.String> get subscribeTracks => $_getList(3);
 }
 

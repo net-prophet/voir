@@ -5,5 +5,6 @@ import 'views/home.dart';
 
 routes() => [
       GetPage(name: "/", page: () => Home()),
-      GetPage(name: "room/:id", page: () => PubSubTestView()),
+      GetPage(name: "/rooms", page: () => Home()),
+      GetPage(name: "/room/:id", page: () => PubSubTestView()),
     ];

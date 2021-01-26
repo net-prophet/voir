@@ -106,7 +106,7 @@ const RoomAdminRequest$json = const {
   '2': const [
     const {'1': 'roomID', '3': 1, '4': 1, '5': 9, '10': 'roomID'},
     const {'1': 'createRoom', '3': 2, '4': 1, '5': 11, '6': '.noir.CreateRoomRequest', '9': 0, '10': 'createRoom'},
-    const {'1': 'playFile', '3': 3, '4': 1, '5': 11, '6': '.noir.PlayFileRequest', '9': 0, '10': 'playFile'},
+    const {'1': 'roomJob', '3': 3, '4': 1, '5': 11, '6': '.noir.RoomJobRequest', '9': 0, '10': 'roomJob'},
   ],
   '8': const [
     const {'1': 'method'},
@@ -119,7 +119,7 @@ const RoomAdminReply$json = const {
     const {'1': 'roomID', '3': 1, '4': 1, '5': 9, '10': 'roomID'},
     const {'1': 'error', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'error'},
     const {'1': 'createRoom', '3': 3, '4': 1, '5': 11, '6': '.noir.CreateRoomReply', '9': 0, '10': 'createRoom'},
-    const {'1': 'playFile', '3': 4, '4': 1, '5': 11, '6': '.noir.PlayFileReply', '9': 0, '10': 'playFile'},
+    const {'1': 'roomJob', '3': 4, '4': 1, '5': 11, '6': '.noir.RoomJobReply', '9': 0, '10': 'roomJob'},
   ],
   '8': const [
     const {'1': 'payload'},
@@ -140,22 +140,22 @@ const CreateRoomReply$json = const {
   ],
 };
 
-const PlayFileRequest$json = const {
-  '1': 'PlayFileRequest',
+const RoomJobRequest$json = const {
+  '1': 'RoomJobRequest',
   '2': const [
-    const {'1': 'filename', '3': 1, '4': 1, '5': 9, '10': 'filename'},
+    const {'1': 'handler', '3': 1, '4': 1, '5': 9, '10': 'handler'},
     const {'1': 'pid', '3': 2, '4': 1, '5': 9, '10': 'pid'},
-    const {'1': 'repeat', '3': 3, '4': 1, '5': 8, '10': 'repeat'},
+    const {'1': 'options', '3': 3, '4': 1, '5': 12, '10': 'options'},
   ],
 };
 
-const PlayFileReply$json = const {
-  '1': 'PlayFileReply',
+const RoomJobReply$json = const {
+  '1': 'RoomJobReply',
   '2': const [
-    const {'1': 'filename', '3': 1, '4': 1, '5': 9, '10': 'filename'},
+    const {'1': 'handler', '3': 1, '4': 1, '5': 9, '10': 'handler'},
     const {'1': 'pid', '3': 2, '4': 1, '5': 9, '10': 'pid'},
-    const {'1': 'repeat', '3': 3, '4': 1, '5': 8, '10': 'repeat'},
-    const {'1': 'status', '3': 4, '4': 1, '5': 8, '10': 'status'},
+    const {'1': 'status', '3': 3, '4': 1, '5': 8, '10': 'status'},
+    const {'1': 'options', '3': 4, '4': 1, '5': 12, '10': 'options'},
   ],
 };
 
@@ -288,6 +288,39 @@ const UserOptions$json = const {
     const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'maxAgeSeconds', '3': 3, '4': 1, '5': 5, '10': 'maxAgeSeconds'},
     const {'1': 'keyExpiryFactor', '3': 4, '4': 1, '5': 5, '10': 'keyExpiryFactor'},
+  ],
+};
+
+const JobData$json = const {
+  '1': 'JobData',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'handler', '3': 2, '4': 1, '5': 9, '10': 'handler'},
+    const {'1': 'status', '3': 3, '4': 1, '5': 14, '6': '.noir.JobData.JobStatus', '10': 'status'},
+    const {'1': 'created', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'created'},
+    const {'1': 'lastUpdate', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'lastUpdate'},
+    const {'1': 'nodeID', '3': 6, '4': 1, '5': 9, '10': 'nodeID'},
+  ],
+  '4': const [JobData_JobStatus$json],
+};
+
+const JobData_JobStatus$json = const {
+  '1': 'JobStatus',
+  '2': const [
+    const {'1': 'CREATED', '2': 0},
+    const {'1': 'RUNNING', '2': 1},
+    const {'1': 'STOPPED', '2': 2},
+    const {'1': 'ERROR', '2': 3},
+  ],
+};
+
+const PeerJobData$json = const {
+  '1': 'PeerJobData',
+  '2': const [
+    const {'1': 'roomID', '3': 1, '4': 1, '5': 9, '10': 'roomID'},
+    const {'1': 'peerID', '3': 2, '4': 1, '5': 9, '10': 'peerID'},
+    const {'1': 'publishTracks', '3': 3, '4': 3, '5': 9, '10': 'publishTracks'},
+    const {'1': 'subscribeTracks', '3': 4, '4': 3, '5': 9, '10': 'subscribeTracks'},
   ],
 };
 
